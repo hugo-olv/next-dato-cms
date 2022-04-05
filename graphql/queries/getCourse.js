@@ -1,20 +1,12 @@
-import {gql, GraphQLClient} from 'graphql-request';
+import { gql } from 'graphql-request';
 
-export default function Home() {
-  return (
-    <div className="">
-      <h1>Home</h1>
-    </div>
-  )
-}
-
-const query = gql`
+export const GET_COURSE = gql`
 query {
   course {
     id
     name
     slug
-    courseDetail {
+    courseDetails {
       ... on CourseHeaderRecord {
         __typename
         bigTitle
@@ -25,5 +17,4 @@ query {
       }
     }
   }
-}
-`;
+}`
