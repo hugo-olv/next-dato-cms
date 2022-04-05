@@ -1,10 +1,12 @@
 import { GraphQLClient } from 'graphql-request';
 import { GET_COURSE } from '../graphql';
+import { CourseSection } from '../components';
 
-export default function Home() {
+export default function Home({ course }) {
+  console.log(course);
   return (
-    <div className="">
-      <h1>Home</h1>
+    <div>
+      {course.courseDetails.map(section => <CourseSection key={section.id} details={section} />)}
     </div>
   )
 }
